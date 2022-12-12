@@ -1,11 +1,11 @@
 package main
 
 import (
-	"net/http"
-	"github.com/YashaswiNayak99/gorilla-pq-test/utils"
-	"github.com/YashaswiNayak99/gorilla-pq-test/services"
-	"github.com/YashaswiNayak99/gorilla-pq-test/router"
+	"github.com/jagottsicher/myGoWebserver/router"
+	"github.com/jagottsicher/myGoWebserver/services"
+	"github.com/jagottsicher/myGoWebserver/utils"
 	"log"
+	"net/http"
 )
 
 func main() {
@@ -14,7 +14,7 @@ func main() {
 	var dbconn = utils.GetConnection()
 	services.SetDB(dbconn)
 	var appRouter = router.CreateRouter()
-	
+
 	log.Println("Listening on Port 8000")
 	log.Fatal(http.ListenAndServe(":8000", appRouter))
 }
