@@ -2,17 +2,18 @@
 package utils
 
 import (
-	"log"
 	"fmt"
+	"log"
+
 	"github.com/jmoiron/sqlx"
 	_ "github.com/lib/pq"
 )
 
 const (
-	host     = "localhost"
-	port     = 5432
+	host     = "192.168.1.243"
+	port     = 6543
 	user     = "postgres"
-	password = "postgres"
+	password = "supersecretpassword"
 	dbname   = "postgres"
 )
 

@@ -1,11 +1,12 @@
 package main
 
 import (
-	"github.com/jagottsicher/myGoWebserver/router"
-	"github.com/jagottsicher/myGoWebserver/services"
-	"github.com/jagottsicher/myGoWebserver/utils"
 	"log"
 	"net/http"
+
+	"myGoWebserver/router"
+	"myGoWebserver/services"
+	"myGoWebserver/utils"
 )
 
 func main() {

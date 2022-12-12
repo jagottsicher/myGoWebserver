@@ -2,10 +2,10 @@
 package router
 
 import (
-	"github.com/gorilla/mux"
-	"github.com/YashaswiNayak99/gorilla-pq-test/services"
-)
+	"myGoWebserver/services"
 
+	"github.com/gorilla/mux"
+)
 
 func CreateRouter() *mux.Router {
 	router := mux.NewRouter()

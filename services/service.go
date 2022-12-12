@@ -1,22 +1,24 @@
 package services
 
 import (
+	"database/sql"
 	"encoding/json"
 	"log"
-	"database/sql"
-	"github.com/jmoiron/sqlx"
 	"net/http"
-	"github.com/gorilla/mux"
 	"strconv"
-	"github.com/YashaswiNayak99/gorilla-pq-test/models"
+
+	"myGoWebserver/models"
+
+	"github.com/gorilla/mux"
+	"github.com/jmoiron/sqlx"
 )
 
 var dbconn *sqlx.DB
 
 func GetAllPosts(w http.ResponseWriter, r *http.Request) {
-	
+
 	w.Header().Set("Content-Type", "application/json")
-	
+
 	var posts = models.GetPosts()
 
 	sqlStmt := `SELECT * FROM posts`
@@ -24,7 +26,7 @@ func GetAllPosts(w http.ResponseWriter, r *http.Request) {
 
 	if err == nil {
 		var tempPost = models.GetPost()
-		
+
 		for rows.Next() {
 			err = rows.StructScan(&tempPost)
 			posts = append(posts, tempPost)
@@ -55,7 +57,7 @@ func GetPost(w http.ResponseWriter, r *http.Request) {
 	id, _ := strconv.Atoi(params["id"])
 
 	var searchpost = models.GetPost()
-	
+
 	sqlStmt := `SELECT * FROM posts WHERE id=$1`
 	row := dbconn.QueryRowx(sqlStmt, id)
 	switch err := row.StructScan(&searchpost); err {
@@ -95,11 +97,11 @@ func CreatePost(w http.ResponseWriter, r *http.Request) {
 func UpdatePost(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	params := mux.Vars(r)
-	
+
 	var post = models.GetPost()
 	_ = json.NewDecoder(r.Body).Decode(&post)
 	post.ID, _ = strconv.Atoi(params["id"])
-	
+
 	id := 0
 	sqlStmt := `UPDATE posts SET title=$1, body=$2 WHERE id=$3 RETURNING id`
 	err := dbconn.QueryRow(sqlStmt, post.Title, post.Body, params["id"]).Scan(&id)

@@ -1,4 +1,4 @@
-module jagottsicher/myGoWebserver
+module github.com/jagottsicher/myGoWebserver
 
 go 1.19
 
