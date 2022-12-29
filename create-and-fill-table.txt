@@ -1,3 +1,15 @@
+// Setup a PostgreSQL Database server in a container
+
+sudo docker run --name postgres-server -p 6543:5432 -e POSTGRES_PASSWORD=supersecretpassword -d postgres
+Port 6543 => 5432
+psql -h localhost -U postgres -d postgres -p 6543
+
+
+
+
+
+// RAW setup for a table to store some data
+
 CREATE SEQUENCE Posts_id_seq;
 
 CREATE TABLE public.posts 
@@ -19,14 +31,19 @@ ALTER TABLE public.posts OWNER to postgres;
 
 
 
+
+// Let's create a two inital posts
+
 INSERT INTO posts(title, body) 
-VALUES('the first title only','and this is all the body of the first post.');
+VALUES('the first title only','and this is the body of the first post.');
 
 INSERT INTO posts(title, body) 
 VALUES('yet another title','and some more copy text for another body.');
 
 
 
+
+// Uselful curl commands to check out the API
 
 Create ()
 curl -X POST 127.0.0.1:8000/posts -H "Content-Type: application/json" -d '{"title": "A new post headline for a new post", "body": "but also a new body text here will appear"}'
