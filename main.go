@@ -4,9 +4,9 @@ import (
 	"log"
 	"net/http"
 
-	"myGoWebserver/router"
-	"myGoWebserver/services"
-	"myGoWebserver/utils"
+	"github.com/jagottsicher/myGoWebserver/router"
+	"github.com/jagottsicher/myGoWebserver/services"
+	"github.com/jagottsicher/myGoWebserver/utils"
 )
 
 func main() {
