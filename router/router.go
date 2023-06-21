@@ -2,7 +2,7 @@
 package router
 
 import (
-	"myGoWebserver/services"
+	"github.com/jagottsicher/myGoWebserver/services"
 
 	"github.com/gorilla/mux"
 )
