@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"strconv"
 
-	"myGoWebserver/models"
+	"github.com/jagottsicher/myGoWebserver/models"
 
 	"github.com/gorilla/mux"
 	"github.com/jmoiron/sqlx"
