@@ -32,7 +32,7 @@ ALTER TABLE public.posts OWNER to postgres;
 
 
 
-// Let's create a two inital posts
+// Let's create two inital posts
 
 INSERT INTO posts(title, body) 
 VALUES('the first title only','and this is the body of the first post.');
