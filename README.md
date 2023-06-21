@@ -1,4 +1,4 @@
-# myGoWebserver
+# myGoWebserver [![Actions Status](https://github.com/jagottsicher/myGoWebserver/workflows/Go/badge.svg)](https://github.com/jagottsicher/myGoWebserver/actions)
 A simple Webserver coded in Go/golang for educational purposes only.
 
 Dependencies:
